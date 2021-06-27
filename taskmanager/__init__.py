@@ -14,7 +14,7 @@ if "DEVELOPMENT" in os.environ:
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
-        uri.replace("postgres://", "postgresql://", 1)
+        uri = uri.replace("postgres://", "postgresql://", 1)
     app.config["SQLALCHEMY_DATABASE_URI"] = uri     # heroku
 
 db = SQLAlchemy(app)
